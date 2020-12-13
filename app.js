@@ -3,25 +3,24 @@ const app = express();
 const mongoose = require('mongoose')
 require ('dotenv/config')
 
+//IMPORT ROUTES
+
+postRoute = require('./router/post')
+app.use('/posts', postRoute);
+
+homeRoute = require('./router/home')
+app.use('/',homeRoute)
 //middleware
 //app.use('/posts',()=>{
 //  console.log('this is a middleware running')
 //})
 
 //connect to db
-mongoose.connect('',
+mongoose.connect( process.env.DB_CONNECT,
  { useNewUrlParser: true }, () => console.log('connected to DB'))
 
 
-//routes 
-app.get('/', (req, res) => {
-    res.send('we are home')
-})
 
-//post example
-app.get('/posts', (req, res) => {
-    res.send('we are on post')
-})
 
 //server
 app.listen(3000);
