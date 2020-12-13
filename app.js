@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
+require ('dotenv/config')
 
 //middleware
 //app.use('/posts',()=>{
@@ -8,7 +9,7 @@ const mongoose = require('mongoose')
 //})
 
 //connect to db
-mongoose.connect('mongodb+srv://admin:admin@rest.exrnc.mongodb.net/<dbname>?retryWrites=true&w=majority',
+mongoose.connect('',
  { useNewUrlParser: true }, () => console.log('connected to DB'))
 
 
